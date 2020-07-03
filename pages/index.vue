@@ -2,6 +2,7 @@
   <div class="container">
     <div>
       <Sidebar />
+      <List />
     </div>
   </div>
 </template>
