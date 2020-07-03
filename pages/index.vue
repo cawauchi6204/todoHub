@@ -3,6 +3,7 @@
     <div>
       <Sidebar />
       <List />
+      <Calendar />
     </div>
   </div>
 </template>
