@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <th id="prev">&laquo;</th>
-          <th id="title" colspan="5">2020/05</th>
+          <th id="title" class="txt-center" colspan="5">2020/05</th>
           <th id="next">&raquo;</th>
         </tr>
         <tr>
@@ -69,6 +69,10 @@ table {
   border: 2px solid #eee;
 }
 
+.txt-center {
+  text-align: center;
+}
+
 thead,
 tfoot {
   background: #eee;
@@ -80,6 +84,11 @@ td {
   text-align: center;
   border: 1px solid #eee;
   background: white;
+}
+
+tbody tr td {
+  border: white solid 10px;
+  border-radius: 50%;
 }
 
 td {
