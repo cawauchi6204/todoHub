@@ -1,9 +1,12 @@
 <template>
-  <div class="container">
-    <div>
-      <Sidebar />
-      <List />
-      <Calendar />
+  <div>
+    <Header />
+    <div class="container">
+      <main>
+        <Sidebar />
+        <List />
+        <Calendar />
+      </main>
     </div>
   </div>
 </template>
