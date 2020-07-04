@@ -1,4 +1,26 @@
+require('dotenv').config()
+const {
+  apiKey,
+  authDomain,
+  databaseURL,
+  projectId,
+  storageBucket,
+  messagingSenderId,
+  appId,
+  measurementId,
+} = process.env
+
 export default {
+  env: {
+    apiKey,
+    authDomain,
+    databaseURL,
+    projectId,
+    storageBucket,
+    messagingSenderId,
+    appId,
+    measurementId,
+  },
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
