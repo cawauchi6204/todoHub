@@ -1,25 +1,25 @@
 require('dotenv').config()
 const {
-  apiKey,
-  authDomain,
-  databaseURL,
-  projectId,
-  storageBucket,
-  messagingSenderId,
-  appId,
-  measurementId,
+  FIREBASE_API_KEY,
+  FIREBASE_AUTH_DOMAIN,
+  FIREBASE_DATABASE_URL,
+  FIREBASE_PROJECT_ID,
+  FIREBASE_STORAGE_BUCKET,
+  FIREBASE_MESSAGING_SENDER_ID,
+  FIREBASE_APP_ID,
+  FIREBASE_MEASUREMENT_ID,
 } = process.env
 
 export default {
   env: {
-    apiKey,
-    authDomain,
-    databaseURL,
-    projectId,
-    storageBucket,
-    messagingSenderId,
-    appId,
-    measurementId,
+    FIREBASE_API_KEY,
+    FIREBASE_AUTH_DOMAIN,
+    FIREBASE_DATABASE_URL,
+    FIREBASE_PROJECT_ID,
+    FIREBASE_STORAGE_BUCKET,
+    FIREBASE_MESSAGING_SENDER_ID,
+    FIREBASE_APP_ID,
+    FIREBASE_MEASUREMENT_ID,
   },
   /*
    ** Nuxt rendering mode
@@ -56,7 +56,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: ['~/plugins/firebase'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -75,6 +75,7 @@ export default {
   modules: [
     // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Build configuration
