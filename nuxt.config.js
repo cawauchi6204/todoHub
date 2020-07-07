@@ -1,3 +1,4 @@
+import webpack from 'webpack'
 require('dotenv').config()
 const {
   FIREBASE_API_KEY,
@@ -56,7 +57,12 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~/plugins/firebase'],
+  plugins: [
+    '~/plugins/firebase',
+    new webpack.ProvidePlugin({
+      _: 'lodash',
+    }),
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
