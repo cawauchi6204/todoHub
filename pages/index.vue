@@ -5,7 +5,7 @@
       <main>
         <Login />
         <Sidebar />
-        <List />
+        <TaskList />
         <TaskDetail />
         <Calendar />
       </main>
