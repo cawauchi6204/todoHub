@@ -6,6 +6,7 @@
         <Login />
         <Sidebar />
         <List />
+        <TaskDetail />
         <Calendar />
       </main>
     </div>

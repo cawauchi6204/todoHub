@@ -1,0 +1,41 @@
+<template>
+  <div class="flex">
+    <h1>Todo List</h1>
+    <input type="text" v-model="title" />
+    <textarea cols="30" rows="10" v-model="detail"></textarea>
+    <input type="date" v-model="date" />
+    <button @click="add">コミット</button>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      title: String,
+      detail: String,
+      dialog: false,
+      date: new Date().toISOString().substr(0, 10),
+      menu: false,
+      modal: false,
+    }
+  },
+  methods: {
+    add() {
+      this.$store.dispatch('task/add', {
+        title: this.title,
+        detail: this.detail,
+        date: this.date,
+      })
+      this.dialog = false
+    },
+  },
+}
+</script>
+
+<style>
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+</style>
