@@ -12,8 +12,8 @@
 export default {
   data() {
     return {
-      title: String,
-      detail: String,
+      title: '',
+      detail: '',
       dialog: false,
       date: new Date().toISOString().substr(0, 10),
       menu: false,
