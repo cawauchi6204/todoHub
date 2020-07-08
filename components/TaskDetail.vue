@@ -9,9 +9,14 @@
 </template>
 
 <script>
+import firebase from '~/plugins/firebase'
+const db = firebase.firestore()
+const taskRef = db.collection('task')
+
 export default {
   data() {
     return {
+      tasks: [],
       title: '',
       detail: '',
       dialog: false,
@@ -22,11 +27,15 @@ export default {
   },
   methods: {
     add() {
-      this.$store.dispatch('task/add', {
-        title: this.title,
-        detail: this.detail,
-        date: this.date,
-      })
+      if (this.title.trim()) {
+        taskRef.add({
+          title: this.title,
+          detail: this.detail,
+          date: this.date,
+          status: false,
+        })
+      }
+      //  ここの部分をtaskに追加する記述にする
       this.dialog = false
       this.title = ''
       this.detail = ''
