@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     todolist() {
-      return this.$store.getters['task/rderdTodoso']
+      return this.$store.getters['task/orderdTodos']
       // .filter((el) => {
       //   return el.status === false
       // }, this)

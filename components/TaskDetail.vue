@@ -28,6 +28,8 @@ export default {
         date: this.date,
       })
       this.dialog = false
+      this.title = ''
+      this.detail = ''
     },
   },
 }
