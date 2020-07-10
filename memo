@@ -21,3 +21,5 @@ TaskListコンポーネントはBoardのtasksをpropsで受け取るだけ。デ
 カレンダーは日にちごとにstateを持たせる
 
 ※finishedTask.length() / unfinishedTask.length()をして,0~0.3は黄緑,0.31~0.50は緑などcomputedプロパティを使って表示する
+
+

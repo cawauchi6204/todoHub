@@ -1,12 +1,10 @@
 <template>
   <div class="todo">
-    <TaskDetail />
     <TaskList :tasks="tasks" />
   </div>
 </template>
 
 <script>
-import TaskDetail from '../components/TaskDetail'
 import TaskList from '../components/TaskList'
 import firebase from '~/plugins/firebase'
 const db = firebase.firestore()
@@ -15,7 +13,6 @@ const taskRef = db.collection('task')
 export default {
   components: {
     TaskList,
-    TaskDetail,
   },
   data() {
     return {
