@@ -39,6 +39,7 @@ export default {
       this.dialog = false
       this.title = ''
       this.detail = ''
+      // 追加した後にinput欄をデフォルト値に戻す
     },
   },
 }

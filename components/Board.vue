@@ -29,11 +29,6 @@ export default {
       })
     })
   },
-  // firestore() {
-  //   return {
-  //     tasks: taskRef,
-  //   }
-  // },
 }
 </script>
 
