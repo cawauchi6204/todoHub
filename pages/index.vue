@@ -5,8 +5,7 @@
       <main>
         <Login />
         <Sidebar />
-        <TaskList />
-        <TaskDetail />
+        <Board />
         <Calendar />
       </main>
     </div>

@@ -1,4 +1,15 @@
-Boardコンポーネントに表示したlistの一覧表示
+Boardコンポーネントに表示したlistの一覧表示(feature/26)
+まずデータを全て所得するクエリが下記
+db.collection("cities").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+    });
+});
+
+TaskListコンポーネントはBoardのtasksをpropsで受け取るだけ。データを持つのはBoardの方
+
+
 
 カレンダーは日にちごとにstateを持たせる
 

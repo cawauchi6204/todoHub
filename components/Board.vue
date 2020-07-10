@@ -1,7 +1,8 @@
 <template>
   <div class="todo">
     <TaskDetail />
-    <TaskList title="Todo" :tasklist="todolist" />
+    <TaskList :tasks="tasks" title="Todo" :tasklist="todolist" />
+    //おそらくここのtitleやv-bindでエラーがおこっている
     <TaskList title="Done" :tasklist="todolist" />
   </div>
 </template>
@@ -9,27 +10,27 @@
 <script>
 import TaskDetail from '../components/TaskDetail'
 import TaskList from '../components/TaskList'
+import firebase from '~/plugins/firebase'
+const db = firebase.firestore()
+const taskRef = db.collection('task')
+
 export default {
   components: {
     TaskList,
     TaskDetail,
   },
-  computed: {
-    todolist() {
-      return this.$store.getters['task/orderdTodos']
-      // .filter((el) => {
-      //   return el.status === false
-      // }, this)
-    },
-    donelist() {
-      return this.$store.getters['task/orderdTodos']
-      // .filter((el) => {
-      //   return el.status === true
-      // }, this)
-    },
+  data() {
+    return {
+      tasks: [],
+    }
   },
   created() {
-    this.$store.dispatch('task/init')
+    taskRef.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, ' => ', doc.data())
+      })
+    })
   },
 }
 </script>
