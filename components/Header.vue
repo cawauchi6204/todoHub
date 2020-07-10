@@ -6,21 +6,27 @@
           <img />
         </div>
         <input
-          type="text navbar-item"
+          type="text"
           placeholder="search or jump to......."
-          class="search-box"
+          class="search-box navbar-item"
         />
         <li class="navbar-item has-text-white">Pull requests</li>
         <li class="navbar-item has-text-white">Issues</li>
         <li class="navbar-item has-text-white">Marketplace</li>
         <li class="navbar-item has-text-white">Explore</li>
       </div>
+      <Login class="has-test-left" />
     </nav>
   </header>
 </template>
 
 <script>
-export default {}
+import Login from './Login'
+export default {
+  components: {
+    Login,
+  },
+}
 </script>
 
 <style>
