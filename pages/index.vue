@@ -3,7 +3,6 @@
     <Header />
     <div class="container">
       <main>
-        <Login />
         <Sidebar />
         <Board />
         <Calendar />

@@ -5,6 +5,7 @@
         <p class="task-name">{{ task.title }}</p>
       </div>
       <div class="content">{{ task.detail }}</div>
+      <p>{{ task.date }}</p>
     </li>
   </div>
 </template>
