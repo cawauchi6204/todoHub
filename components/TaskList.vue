@@ -18,7 +18,7 @@ export default {
 <style lang="scss">
 .task {
   list-style: none;
-  border-top: 1px solid #eee;
+  border: 1px solid #e1e4e8;
   padding: 5px 15px;
   display: flex;
   flex-wrap: no-wrap;
