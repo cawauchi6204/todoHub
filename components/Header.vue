@@ -15,7 +15,7 @@
         <li class="navbar-item has-text-white">Marketplace</li>
         <li class="navbar-item has-text-white">Explore</li>
       </div>
-      <Login class="has-test-left" />
+      <Login class="has-test-right" />
     </nav>
   </header>
 </template>

@@ -1,10 +1,11 @@
 <template>
-  <div class="flex">
-    <h1>Todo List</h1>
-    <input type="text" v-model="title" />
-    <textarea cols="30" rows="10" v-model="detail"></textarea>
+  <div class="task-detail">
+    <input type="text" v-model="title" placeholder="タイトル" />
+    <textarea placeholder="詳細" cols="15" rows="3" v-model="detail"></textarea>
     <input type="date" v-model="date" />
-    <button @click="add">Todoディポジトリに追加する</button>
+    <button class="button is-primary" @click="add">
+      Todoディポジトリに追加する
+    </button>
   </div>
 </template>
 
@@ -45,9 +46,26 @@ export default {
 }
 </script>
 
-<style>
-.flex {
+<style lang="scss" scoped>
+.task-detail {
+  border: 1px solid #e1e4e8;
+  padding: 5px 15px;
+  position: relative;
+  margin: 10px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
+  width: 45%;
+
+  input,
+  textarea,
+  button {
+    margin: 5px;
+    border-radius: 5px;
+  }
+
+  .task-box {
+    margin: 10px 10px 10px 0;
+  }
 }
 </style>
