@@ -6,6 +6,13 @@ db.collection("cities").get().then(function(querySnapshot) {
         console.log(doc.id, " => ", doc.data());
     });
 });
+7/10起きていること
+createdでデータを取得してそれをtasksに格納しているが配列が配列の数分だけ格納されてしまう
+(
+    ["すたばいく", __ob__: Observer]0: "すたばいく"1: "ef"2: "すたばいく"3: "変化後"4: "vuexはやめた"5: "ご飯"length: 6__ob__: Observer {value: Array(6), dep: Dep, vmCount: 0}__proto__: Array
+    これが6個格納されてしまう？
+)
+↑console.logをforeachで回数分だけ出力していただけだった
 
 TaskListコンポーネントはBoardのtasksをpropsで受け取るだけ。データを持つのはBoardの方
 

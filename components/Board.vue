@@ -1,9 +1,7 @@
 <template>
   <div class="todo">
     <TaskDetail />
-    <TaskList :tasks="tasks" title="Todo" :tasklist="todolist" />
-    //おそらくここのtitleやv-bindでエラーがおこっている
-    <TaskList title="Done" :tasklist="todolist" />
+    <TaskList :tasks="tasks" />
   </div>
 </template>
 
@@ -27,11 +25,15 @@ export default {
   created() {
     taskRef.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, ' => ', doc.data())
+        this.tasks.push(doc.data())
       })
     })
   },
+  // firestore() {
+  //   return {
+  //     tasks: taskRef,
+  //   }
+  // },
 }
 </script>
 
