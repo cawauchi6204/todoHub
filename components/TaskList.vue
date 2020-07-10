@@ -1,23 +1,59 @@
 <template>
-  <article class="box media">
-    <div class="media-content">
-      <h4>{{ title }}</h4>
-      <ul>
-        <li v-for="task in tasks" :key="task.id">
-          <h4>{{ task.title }}</h4>
-          <p>{{ task.detail }}</p>
-        </li>
-      </ul>
-    </div>
-  </article>
+  <div>
+    <li v-for="(task, index) in tasks" class="task" :key="index">
+      <div class="task-box">
+        <p class="task-name">{{ task.title }}</p>
+      </div>
+      <div class="content">{{ task.detail }}</div>
+    </li>
+  </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: ['tasks'],
+}
 </script>
+<style lang="scss">
+.task {
+  list-style: none;
+  border-top: 1px solid #eee;
+  padding: 5px 15px;
+  display: flex;
+  flex-wrap: no-wrap;
+  justify-content: flex-start;
+  position: relative;
 
-<style scoped>
-.card-description {
-  margin: 20px 20px 10px 10px;
+  &:first-child {
+    border: none;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  .task-box {
+    margin: 10px 10px 10px 0;
+
+    .avatar {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border: 1px solid #eee;
+      background-size: cover;
+    }
+
+    .task-name {
+      margin: 5px 0 0 0;
+      text-align: center;
+      font-size: 0.7rem;
+      line-height: 0.7rem;
+      width: 50px;
+    }
+  }
+
+  .content {
+    padding: 10px;
+  }
 }
 </style>
