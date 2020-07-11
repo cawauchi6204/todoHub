@@ -4,7 +4,7 @@
     <textarea placeholder="詳細" cols="15" rows="3" v-model="detail"></textarea>
     <input type="date" v-model="date" />
     <button class="button is-primary" @click="add">
-      Todoディポジトリに追加する
+      Todoリポジトリに追加する
     </button>
   </div>
 </template>
@@ -60,12 +60,16 @@ export default {
   input,
   textarea,
   button {
-    margin: 5px;
+    margin: 3px;
     border-radius: 5px;
+    border: 1px #e1e4e8 solid;
   }
 
   .task-box {
     margin: 10px 10px 10px 0;
   }
+}
+.is-primary {
+  background-color: #04d2b2;
 }
 </style>
