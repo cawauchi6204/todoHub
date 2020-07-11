@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex">
     <TaskDetail />
     <li v-for="(task, index) in tasks" :key="index" class="task">
       <div class="task-box">
@@ -20,13 +20,17 @@ export default {
   props: ['tasks'],
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
 .task {
   list-style: none;
   border: 1px solid #e1e4e8;
   padding: 5px 15px;
   position: relative;
-  margin: 10px;
+  margin: 10px 0 10px 10px;
   border-radius: 10px;
   width: 45%;
 
