@@ -23,16 +23,18 @@ export default {
     }
   },
   created() {
-    taskRef.onSnapshot((querySnapshot) => {
-      this.tasks = []
-      querySnapshot.forEach((doc) => {
-        this.tasks.push(doc.data())
-        console.log('test')
+    taskRef
+      .orderBy('date', 'desc')
+      .limit(5)
+      .onSnapshot((querySnapshot) => {
+        this.tasks = []
+        querySnapshot.forEach((doc) => {
+          this.tasks.push(doc.data())
+          console.log('test')
+        })
       })
-    })
   },
 }
-//  ここはvuexに変えた方がいい
 </script>
 
 <style>
