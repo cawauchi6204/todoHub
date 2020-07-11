@@ -19,6 +19,7 @@ export default {}
 .container {
   min-height: 100vh;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 </style>

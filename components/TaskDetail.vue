@@ -51,7 +51,7 @@ export default {
   border: 1px solid #e1e4e8;
   padding: 5px 15px;
   position: relative;
-  margin: 10px;
+  margin: 10px 0 10px 10px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
