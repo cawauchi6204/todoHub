@@ -1,8 +1,8 @@
 <template>
   <div class="task-detail">
-    <input type="text" v-model="title" placeholder="タイトル" />
-    <textarea placeholder="詳細" cols="15" rows="3" v-model="detail"></textarea>
-    <input type="date" v-model="date" />
+    <input v-model="title" type="text" placeholder="タイトル" />
+    <textarea v-model="detail" placeholder="詳細" cols="15" rows="3"></textarea>
+    <input v-model="date" type="date" />
     <button class="button is-primary" @click="add">
       Todoリポジトリに追加する
     </button>

@@ -17,14 +17,14 @@
       <tbody>
         <tr v-for="(weekData, index) in calData" :key="index">
           <td
-            class="cal-day"
             v-for="(dayNum, index) in weekData"
             :key="index"
-            @click="dateClick(dayNum)"
+            class="cal-day"
             :class="{
               'cal-today': isToday(dayNum),
               active: day === dayNum,
             }"
+            @click="dateClick(dayNum)"
           >
             <span v-if="isToday(dayNum)">今日</span>
             <span v-else>{{ dayNum }}</span>
