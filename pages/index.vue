@@ -3,9 +3,8 @@
     <Header />
     <div class="container">
       <main class="columns">
-        <Sidebar class="column is-one-thirds" />
-        <Board class="column is-two-thirds" />
-        <Calendar />
+        <Sidebar class="column is-one-quarter" />
+        <Board class="column is-three-quarter" />
       </main>
     </div>
   </div>

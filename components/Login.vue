@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="button is-primary is-rounded" @click="login">
+    <button class="button is-primary" @click="login">
       ログイン
     </button>
   </div>
@@ -27,3 +27,8 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+.is-primary {
+  background-color: #04d2b2;
+}
+</style>
