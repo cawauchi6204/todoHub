@@ -1,5 +1,57 @@
-Boardコンポーネントに表示したlistの一覧表示
+Boardコンポーネントに表示したlistの一覧表示(feature/26)
+まずデータを全て所得するクエリが下記
+db.collection("cities").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+    });
+});
+7/10起きていること
+createdでデータを取得してそれをtasksに格納しているが配列が配列の数分だけ格納されてしまう
+(
+    ["すたばいく", __ob__: Observer]0: "すたばいく"1: "ef"2: "すたばいく"3: "変化後"4: "vuexはやめた"5: "ご飯"length: 6__ob__: Observer {value: Array(6), dep: Dep, vmCount: 0}__proto__: Array
+    これが6個格納されてしまう？
+)
+↑console.logをforeachで回数分だけ出力していただけだった
+
+TaskListコンポーネントはBoardのtasksをpropsで受け取るだけ。データを持つのはBoardの方
+
+
 
 カレンダーは日にちごとにstateを持たせる
 
 ※finishedTask.length() / unfinishedTask.length()をして,0~0.3は黄緑,0.31~0.50は緑などcomputedプロパティを使って表示する
+
+7/10 firebaseのauthのデータをfirestoreに追加する方法
+Firestoreに新規のドキュメントを保存するには、
+
+db.collection('<コレクション名>').doc('<ドキュメントのID>').set({
+  '<フィールド１>': '<フィールド１の値>',
+  '<フィールド２>': '<フィールド２の値>',
+  '<フィールド３>': '<フィールド３の値>'
+})
+という関数を使用します（参照：Firebaseドキュメント「Cloud Firestore にデータを追加する」）。
+
+Firestoreに新規ドキュメントを追加する関数には、上のようにsetを使うものと、下のようにaddを使うものとがあります。
+
+db.collection('<コレクション名>').add({
+  '<フィールド１>': '<フィールド１の値>',
+  '<フィールド２>': '<フィールド２の値>',
+  '<フィールド３>': '<フィールド３の値>'
+})
+この２つの違いは、doc()の指定の有無、すなわち、新規に追加するドキュメントのIDを指定するか否かにあります。ここでは、サインイン時にユーザーのドキュメントを追加したいのですが、この場合にaddを使ってしまうと、Firebaseのユーザー管理機能の方で作成されるユーザIDと異なるIDがFirestore側で付与されることになり、何かと不都合です。
+
+そのため、ここではsetを使い、サインイン時にFirebaseのauthが作成してくれるユーザーIDをdoc()部分で流用することで、Firestoreの側でも同一のIDが付与されるようにします。
+
+今回はusersというコレクションにユーザーの情報をドキュメントとして保存するようにしましょう。
+
+7/10
+
+lintしたいコンポーネントの親ディレクトリに入って以下のコマンドでlintすることができる
+npx eslint '*.vue' --fix
+
+//Reactの場合は
+npx eslint '*.{js,jsx,ts,tsx}'
+
+
+

@@ -1,35 +1,38 @@
 <template>
   <div class="todo">
-    <TaskDetail />
-    <TaskList title="Todo" :tasklist="todolist" />
-    <TaskList title="Done" :tasklist="todolist" />
+    <TaskList :tasks="tasks" />
+    <Calendar />
   </div>
 </template>
 
 <script>
-import TaskDetail from '../components/TaskDetail'
 import TaskList from '../components/TaskList'
+import Calendar from '../components/Calendar'
+import firebase from '~/plugins/firebase'
+const db = firebase.firestore()
+const taskRef = db.collection('task')
+
 export default {
   components: {
     TaskList,
-    TaskDetail,
+    Calendar,
   },
-  computed: {
-    todolist() {
-      return this.$store.getters['task/orderdTodos']
-      // .filter((el) => {
-      //   return el.status === false
-      // }, this)
-    },
-    donelist() {
-      return this.$store.getters['task/orderdTodos']
-      // .filter((el) => {
-      //   return el.status === true
-      // }, this)
-    },
+  data() {
+    return {
+      tasks: [],
+    }
   },
   created() {
-    this.$store.dispatch('task/init')
+    taskRef
+      .orderBy('date', 'desc')
+      .limit(5)
+      .onSnapshot((querySnapshot) => {
+        this.tasks = []
+        querySnapshot.forEach((doc) => {
+          this.tasks.push(doc.data())
+          console.log('test')
+        })
+      })
   },
 }
 </script>

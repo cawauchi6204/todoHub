@@ -1,39 +1,41 @@
 <template>
-  <article class="box media">
-    <div class="media-content">
-      <h4>{{ title }}</h4>
-      <ul>
-        <li v-for="task in taskList" :key="task.id">
-          <h4>{{ task.title }}</h4>
-          <p>{{ task.detail }}</p>
-        </li>
-      </ul>
-    </div>
-  </article>
+  <div class="flex">
+    <TaskDetail />
+    <li v-for="(task, index) in tasks" :key="index" class="task">
+      <div class="task-box">
+        <p class="task-name">{{ task.title }}</p>
+      </div>
+      <div class="content">{{ task.detail }}</div>
+      <p>{{ task.date }}</p>
+    </li>
+  </div>
 </template>
 
 <script>
+import TaskDetail from './TaskDetail'
 export default {
-  props: {
-    type: String,
+  components: {
+    TaskDetail,
   },
-  tasklist: {
-    type: Array,
-    default: null,
-  },
-  methods: {
-    remove(id) {
-      this.$store.dispatch('task/remove', id)
-    },
-    toggle(task) {
-      this.$store.dispatch('task/toggle', task)
-    },
-  },
+  props: ['tasks'],
 }
 </script>
+<style lang="scss" scoped>
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.task {
+  list-style: none;
+  border: 1px solid #e1e4e8;
+  padding: 5px 15px;
+  position: relative;
+  margin: 10px 0 10px 10px;
+  border-radius: 10px;
+  width: 45%;
 
-<style scoped>
-.card-description {
-  margin: 20px 20px 10px 10px;
+  .task-box {
+    margin: 10px 10px 10px 0;
+  }
 }
 </style>
