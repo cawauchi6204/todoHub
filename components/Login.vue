@@ -26,7 +26,7 @@ export default {
     login() {
       const provider = new firebase.auth.GoogleAuthProvider()
       auth.signInWithPopup(provider).then((result) => {
-        alert('こんにちは' + result.user.displayName + 'さん!')
+        this.$router.push('/user/' + result.user.uid)
         this.createUser(result.user)
       })
     },
