@@ -3,43 +3,42 @@
     <input v-model="title" type="text" placeholder="タイトル" />
     <textarea v-model="detail" placeholder="詳細" cols="15" rows="3"></textarea>
     <input v-model="date" type="date" />
-    <button class="button is-primary" @click="add">
+    <button class="button is-primary" @click="addTodo">
       Todoリポジトリに追加する
     </button>
   </div>
 </template>
 
 <script>
-import firebase from '~/plugins/firebase'
-const db = firebase.firestore()
-const taskRef = db.collection('task')
+import '../store/store'
+// import firebase from '~/plugins/firebase'
+// const db = firebase.firestore()
 
 export default {
   data() {
     return {
-      tasks: [],
       title: '',
       detail: '',
-      dialog: false,
       date: new Date().toISOString().substr(0, 10),
-      menu: false,
-      modal: false,
     }
   },
   methods: {
-    add() {
+    // storeに値をディスパッチしている
+    // storeからfirebaseにsubscribeでデータに変更があった場合にfirestoreにデータが送られる
+    addTodo() {
       if (this.title.trim()) {
-        taskRef.add({
+        this.$store.dispatch('addTodo', {
           title: this.title,
           detail: this.detail,
           date: this.date,
           status: false,
         })
+        console.log(this.$store.state.tasks)
       }
       //  ここの部分をtaskに追加する記述にする
-      this.dialog = false
       this.title = ''
       this.detail = ''
+      this.date = ''
       // 追加した後にinput欄をデフォルト値に戻す
     },
   },
