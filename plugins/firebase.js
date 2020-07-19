@@ -1,6 +1,7 @@
 import firebase from 'firebase'
 import 'firebase/auth'
 import 'firebase/firestore'
+import '../store/store'
 
 if (!firebase.apps.length) {
   firebase.initializeApp({
@@ -16,3 +17,34 @@ if (!firebase.apps.length) {
 }
 
 export default firebase
+
+// export default {
+//   init() {
+//     firebase.initializeApp(config);
+//     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+//   },
+//   login() {
+//     const provider = new firebase.auth.GoogleAuthProvider();
+//     firebase.auth().signInWithPopup(provider)
+//   },
+//   logout() {
+//     firebase.auth().signOut()
+//   },
+//   onAuth() {
+//     firebase.auth().onAuthStateChanged(user => {
+//       user = user ? user : {};
+//       this.$store.dispatch('onAuthStateChanged', user);
+//       this.$store.dispatch('onUserStatusChanged', user.uid ? true : false);
+//     });
+//   },
+//   createUser(user) {
+//     db.collection('users').doc(user.uid).set(
+//       {
+//         name: user.displayName,
+//         photoURL: user.photoURL,
+//         email: user.email,
+//       },
+//       { merge: true }
+//     )
+//   },
+// }

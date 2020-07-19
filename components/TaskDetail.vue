@@ -33,6 +33,7 @@ export default {
           title: this.title,
           detail: this.detail,
           date: this.date,
+          uid: this.$store.getters.currentUser,
           status: false,
         })
       }

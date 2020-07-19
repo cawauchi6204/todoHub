@@ -30,7 +30,6 @@ export default {
         this.tasks = []
         querySnapshot.forEach((doc) => {
           this.tasks.push(doc.data())
-          console.log('test')
         })
       })
   },

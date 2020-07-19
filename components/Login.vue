@@ -26,18 +26,24 @@ export default {
     login() {
       const provider = new firebase.auth.GoogleAuthProvider()
       auth.signInWithPopup(provider).then((result) => {
-        alert('こんにちは' + result.user.displayName + 'さん!')
-        this.createUser(result.user)
+        alert('こんにちは' + result.user.displayName + 'さん!').then(
+          (result) => {
+            this.createUser(result.user)
+            this.currentUser = result.user
+            this.$store.dispatch('login', { result })
+          }
+        )
       })
     },
     logout() {
       auth.signOut().then(() => {
         alert('ログアウトできました')
-        this.$router.push('/')
+        this.$router.push('/user/:id')
         location.reload()
       })
     },
     createUser(user) {
+      // 一致するuserがなければ情報をセットする
       db.collection('users').doc(user.uid).set(
         {
           name: user.displayName,
